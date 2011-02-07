@@ -5,7 +5,8 @@ class UnifiedLogger < ActiveSupport::BufferedLogger
   attr_accessor :log_server
   attr_accessor :log_server_port
 
-  def initialize(log = "log/#{Rails.env}.log", level = DEBUG, client_id)
+  def initialize(log = "log/#{Rails.env}.log", level = DEBUG, client_id=nil)
+    raise ArgumentError, "client_id cannot be nil." if client_id.nil?
     super(log, level)
     @client_id = client_id
   end
