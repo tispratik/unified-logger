@@ -2,6 +2,10 @@ require 'rest_client'
 
 class UnifiedLogger < ActiveSupport::BufferedLogger
 
+  LOG_SERVER = "localhost"
+  LOG_SERVER_PORT = 3000
+  LOG_SERVER_RELATIVE_PATH = "logers.json"
+
   attr_accessor :log_server
   attr_accessor :log_server_port
 
@@ -39,7 +43,7 @@ class UnifiedLogger < ActiveSupport::BufferedLogger
     log_hash = { :client_id => @client_id, :log_message => message, :log_level => severity_str, :log_time => Time.now }
     loger_hash = { :loger => log_hash }
 
-    RestClient.post("http://#{log_server}:#{log_server_port}/logers.json", loger_hash.to_json, :content_type => :json)
+    RestClient.post("http://#{LOG_SERVER}:#{LOG_SERVER_PORT}/#{LOG_SERVER_RELATIVE_PATH}", loger_hash.to_json, :content_type => :json)
   end
 
 end
