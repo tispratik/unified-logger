@@ -5,7 +5,7 @@ class UnifiedLogger < ActiveSupport::BufferedLogger
   attr_accessor :log_server
   attr_accessor :log_server_port
 
-  def initialize(log = "log/#{Rails.env}.log", level = DEBUG, client_id = 0)
+  def initialize(client_id, log = "log/#{Rails.env}.log", level = DEBUG)
     super(log, level)
     @client_id = client_id
   end
