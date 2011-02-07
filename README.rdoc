@@ -5,15 +5,15 @@ All the rails app connect to a restful logger where the logs are stored in the d
 
 = Usage
 
-Restful-logger assumes that all your rails applications have a unique client_id.
+Unified-logger assumes that all your rails applications have a unique client_id.
 Add the following lines to your environment.rb file, make sure you have a different client id for each application.
 
-  require 'restful_logger'
-  Rails.logger = RestfulLogger.new(10)      # client_id => 10
+  require 'unified_logger'
+  Rails.logger = UnifiedLogger.new(10)      # client_id => 10
   Rails.logger.log_server = "localhost"     # where your logger service is hosted
   Rails.logger.log_server_port = "3000"     # your logger service port
 
-== Contributing to restful-logger
+== Contributing to unified-logger
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
