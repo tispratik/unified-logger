@@ -13,6 +13,9 @@ Add the following lines to your environment.rb file, make sure you have a differ
   Rails.logger.log_server = "localhost"     # where your logger service is hosted
   Rails.logger.log_server_port = "3000"     # your logger service port
 
+Unified logger hooks onto the Rails default logger (BufferedLogger) and overrides the default logging methods like debug, warn, info, etc.
+So, hereafter, any logging statements will be posted to the log storage service through a Rest Client.
+
 == Contributing to unified-logger
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
